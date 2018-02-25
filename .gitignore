@@ -1,5 +1,3 @@
 .pyc
-.Python
-bin
-lib
-include
+.ipynb_checkpoints
+
