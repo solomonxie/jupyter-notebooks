@@ -6,3 +6,6 @@ This folder should be good to run in virtual enviroment, specifically the `pipen
 There's a `Pipfile` under folder, detailed the `Python3` enviroment dependencies.
 Yet there still are a few files needing `python2` enviroment, hence I created a `venv2` sub-folder,
 includes the `python2` enviroment. 
+
+Note that, this jupyter notebook environment is already installed with customized theme, plugins. 
+So it only will work well when you properly reinstall with the `Pipfile`.
