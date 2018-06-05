@@ -1,76 +1,78 @@
-# Python操作Git库 `GitPython`
+# `Integral Calculus basics`
+Integral calculus is a process to calculate the **`AREA`** between a function and the X-axis.
 
-[参考文章](http://note.qidong.name/2018/01/gitpython/)
-[参考文章](http://www.cnblogs.com/baiyangcao/p/gitpython.html)
-[复杂点的参考](https://my.oschina.net/hopeMan/blog/141221)
+## Core idea of Integral Calculus
 
-试了一圈发现，git库的用法设置非常符合原生git命令，只不过之间加了个`.`而已。
-比如原本命令行里是`git add .`，这里就是`repo.git.add('.')`，
-原本是`git commit -m "信息"`，这里就是`repo.git.commit(m='信息')`
-可以说减少了很多学习时间，基本上我很多都是没参考文档自己猜出来的也能用。
+[Refer to Khan academy: Introduction to integral calculus](https://www.khanacademy.org/math/ap-calculus-bc/bc-accumulation-riemann-sums/modal/v/introduction-to-integral-calculus)
 
-```
-sudo pip install gitpython
-```
+![image](https://user-images.githubusercontent.com/14041622/40873054-ed0e9f42-668b-11e8-8860-0e4778f2c041.png)
 
-库安装好后可以直接在python中用了。
+## `Riemann Sums`
+A Riemann sum is an **approximation** of the area under a curve by dividing it into multiple simple shapes (like rectangles or trapezoids).
 
-### 创建、识别、克隆仓库
+### `Riemann Sums Notation`
 
-文件夹地址可以是全路径，也可以是`.`当前文件夹、`../`上级文件夹等用法。
+[Refer to Khan academy: Definite integral as the limit of a Riemann sum](https://www.khanacademy.org/math/ap-calculus-bc/bc-accumulation-riemann-sums/modal/v/riemann-sums-and-integrals)
 
-```
-# 在文件夹里新建一个仓库，如果已存在git仓库也不报错不覆盖没问题
-repo = git.Repo.init(path='文件夹地址')
+![image](https://user-images.githubusercontent.com/14041622/40902169-a17a49a2-6805-11e8-9214-bae6f044caa0.png)
 
-# 选择已有仓库
-repo = git.Repo( '仓库地址' )
+The letter `ʃ` (reads as "esh" or just "integral") is called `the Integral symbol/sign`.
 
-# 克隆仓库
-repo = git.Repo.clone_from(url='git@github.com:USER/REPO.git', to_path='../new')
-```
 
-### 常用语句：
+### Left & Right Riemann Sums Approximation
+[Refer to Maths is fun: Integral Approximations](https://www.mathsisfun.com/calculus/integral-approximations.html)
 
-```python
-# 查看repo状态
-print repo.git.status()   # 返回通常的status几句信息
-print repo.is_dirty()    # 返回是否有改动（包括未add和未commit的）
+- `Left Riemann Sum`: take the Left boundary value of `Δx` to be the rectangle's **height**.
+- `Right Riemann Sum`: take the Right boundary value of `Δx` to be the rectangle's **height**.
 
-# 添加文件 可以是单个文件名，也可以是`[ ]`数组，还可以是`.`代表全部
-print repo.git.add( '文件名' )
+![image](https://user-images.githubusercontent.com/14041622/40884539-ed5aff60-6747-11e8-80ee-d1139810c0c2.png)
 
-# commit提交
-print repo.git.commit( m='提交信息' )
-```
+As you can see, they would be either Over-estimated or Under-estimated. Neither of these approximations would be called a good one, normally.
 
-### 远程交互操作
+### Midpoint Sums Approximation
+It's an enhancement to the Left sums and Right sums, it takes the midpoint value, and sometimes makes better approximation.
 
-```python
-# 创建remote：
-remote = repo.create_remote(name='gitlab', url='git@gitlab.com:USER/REPO.git')
+## `How to calculate Riemann Sums`
 
-# 远程交互：
-remote = repo.remote()
-remote.fetch()
-remote.pull()
-remote.push()
-```
+[Refer to Khan academy:  Rewriting definite integral as limit of Riemann sum](https://www.khanacademy.org/math/ap-calculus-bc/bc-accumulation-riemann-sums/modal/v/rewriting-definite-integral-as-limit-of-riemann-sum)
 
-### 实验效果
+![image](https://user-images.githubusercontent.com/14041622/40902699-810e7538-6807-11e8-93bd-78c9da47b96a.png)
+# `Integral Calculus basics`
+Integral calculus is a process to calculate the **`AREA`** between a function and the X-axis.
 
-```python
- # 原意是返回工作区是否改变的状态
-# 但是测试发现，工作区有变动它返回False，没变动却返回True
-print repo.is_dirty()
-```
+## Core idea of Integral Calculus
 
-### 生成tar压缩包
+[Refer to Khan academy: Introduction to integral calculus](https://www.khanacademy.org/math/ap-calculus-bc/bc-accumulation-riemann-sums/modal/v/introduction-to-integral-calculus)
 
-```python
-# 压缩到 tar 文件
-with open('repo.tar', 'wb') as fp:
-    repo.archive(fp)
-```
+![image](https://user-images.githubusercontent.com/14041622/40873054-ed0e9f42-668b-11e8-8860-0e4778f2c041.png)
 
-# 
+## `Riemann Sums`
+A Riemann sum is an **approximation** of the area under a curve by dividing it into multiple simple shapes (like rectangles or trapezoids).
+
+### `Riemann Sums Notation`
+
+[Refer to Khan academy: Definite integral as the limit of a Riemann sum](https://www.khanacademy.org/math/ap-calculus-bc/bc-accumulation-riemann-sums/modal/v/riemann-sums-and-integrals)
+
+![image](https://user-images.githubusercontent.com/14041622/40902169-a17a49a2-6805-11e8-9214-bae6f044caa0.png)
+
+The letter `ʃ` (reads as "esh" or just "integral") is called `the Integral symbol/sign`.
+
+
+### Left & Right Riemann Sums Approximation
+[Refer to Maths is fun: Integral Approximations](https://www.mathsisfun.com/calculus/integral-approximations.html)
+
+- `Left Riemann Sum`: take the Left boundary value of `Δx` to be the rectangle's **height**.
+- `Right Riemann Sum`: take the Right boundary value of `Δx` to be the rectangle's **height**.
+
+![image](https://user-images.githubusercontent.com/14041622/40884539-ed5aff60-6747-11e8-80ee-d1139810c0c2.png)
+
+As you can see, they would be either Over-estimated or Under-estimated. Neither of these approximations would be called a good one, normally.
+
+### Midpoint Sums Approximation
+It's an enhancement to the Left sums and Right sums, it takes the midpoint value, and sometimes makes better approximation.
+
+## `How to calculate Riemann Sums`
+
+[Refer to Khan academy:  Rewriting definite integral as limit of Riemann sum](https://www.khanacademy.org/math/ap-calculus-bc/bc-accumulation-riemann-sums/modal/v/rewriting-definite-integral-as-limit-of-riemann-sum)
+
+![image](https://user-images.githubusercontent.com/14041622/40902699-810e7538-6807-11e8-93bd-78c9da47b96a.png)
